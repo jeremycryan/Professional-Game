@@ -3,8 +3,8 @@ extends TileMap
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-const grappleable = true;
-const standable = false;
+
+const standable = true;
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -15,3 +15,8 @@ func _ready():
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
+
+
+func _on_Player_body_entered(body):
+	body.canJump = true;
+	print('hello');

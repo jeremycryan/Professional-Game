@@ -60,7 +60,7 @@ func _process(delta):
 		
 		#Change this physics to be non inertial!!!!!!!!!!
 		bulletInst.apply_impulse(Vector2(), shootSpeed*shootdir)
-		parent.apply_impulse(Vector2(), -shootStrength*shootdir / parent.mass)
+		#parent.apply_impulse(Vector2(), -shootStrength*shootdir / parent.mass)
 		
 		bulletRef = weakref(bulletInst)
 		
