@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://NewDemoTileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://GrappleableWall.gd" type="Script" id=2]
+[ext_resource path="res://PlayerTake2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GameCamera.gd" type="Script" id=4]
+
+[node name="Node2D" type="Node2D" index="0"]
+
+[node name="Level" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = true
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262140, 0, 0, -131076, 0, 0, -196604, 0, 0, -65540, 0, 0, -131068, 0, 0, -4, 0, 0, -65532, 0, 0, 65532, 0, 0, 4, 0, 0, 131068, 0, 0, 65540, 0, 0, 196604, 0, 0, 131076, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Cell", "Collision" ]
+
+[node name="Player" parent="." index="1" instance=ExtResource( 3 )]
+
+collision_mask = 1
+linear_velocity = Vector2( 0, 100 )
+_sections_unfolded = [ "Collision", "Linear", "Transform" ]
+
+[node name="Camera2D" type="Camera2D" parent="." index="2"]
+
+anchor_mode = 1
+rotating = true
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+script = ExtResource( 4 )
+_sections_unfolded = [ "Drag Margin", "Smoothing" ]
+
+
