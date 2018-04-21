@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Bullet" type="RigidBody2D"]
+[node name="Bullet" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 8
@@ -29,18 +29,18 @@ linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-position = Vector2( 1.90735e-06, 1.90735e-06 )
-scale = Vector2( 2.46154, 2.46154 )
+scale = Vector2( 1.5, 1.5 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="CollisionShape2D" index="0"]
 
-position = Vector2( -7.7486e-07, -7.7486e-07 )
 scale = Vector2( 0.40625, 0.40625 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 
