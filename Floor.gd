@@ -16,6 +16,5 @@ func _ready():
 
 
 func _on_Player_body_entered(body):
-	print('hello');
-	print(body);
-	emit_signal("collided")
+	if body.is_in_group("floor"):
+		emit_signal("collided");
