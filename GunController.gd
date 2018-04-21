@@ -10,7 +10,7 @@ var parent;
 var grandparent;
 #var bulletInst = null;
 var bulletRef = null;
-var shootSpeed = 100;
+var shootSpeed = 500;
 
 func _ready():
 	# Called every time the node is added to the scene.
