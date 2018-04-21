@@ -8,7 +8,8 @@ var bulletFab = preload("res://Bullet.tscn");
 
 var parent;
 var grandparent;
-var bulletInst = null;
+#var bulletInst = null;
+var bulletRef = null;
 var shootSpeed = 1000;
 
 func _ready():
@@ -35,11 +36,11 @@ func _process(delta):
 		shootdir.x -= 1;
 	if(Input.is_action_just_pressed("shoot_right")):
 		shootdir.x += 1;"""
-	
 	#Mouse Based
 	if (Input.is_action_just_pressed("shoot")):
-		if (bulletInst != null):
-			bulletInst.queue_free()
+		if (bulletRef != null and bulletRef.get_ref()):
+			bulletRef.get_ref().queue_free()
+			bulletRef = null
 			pass
 		
 		# OPTION: Mouse-based
@@ -50,7 +51,7 @@ func _process(delta):
 		#shootdir = shootdir.normalized()
 		
 		
-		bulletInst = bulletFab.instance();
+		var bulletInst = bulletFab.instance();
 		grandparent.add_child(bulletInst);
 		bulletInst.set_global_position(global_position);
 		bulletInst.linear_velocity = parent.linear_velocity; #Eventually when doing non-inertial don't transfer this velocity
@@ -61,3 +62,21 @@ func _process(delta):
 		bulletInst.apply_impulse(Vector2(), shootSpeed*shootdir)
 		parent.apply_impulse(Vector2(), -shootStrength*shootdir / parent.mass)
 		
+		bulletRef = weakref(bulletInst)
+		
+	"""if (bulletInst != null):
+		print (bulletInst.get_parent().name)
+	else:
+		print("it's null");"""
+	#print (bulletInst.)
+	#print (grandparent.has_node("Bullet"))
+	if (Input.is_action_just_pressed("tele") and bulletRef != null and bulletRef.get_ref()):
+		BulletSwap(parent, bulletRef.get_ref());
+		
+func BulletSwap(p, b):
+	var temp = b.global_position
+	b.global_position = p.global_position
+	p.global_position = temp
+	var templin = b.linear_velocity;
+	b.linear_velocity = p.linear_velocity
+	p.linear_velocity = templin

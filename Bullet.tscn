@@ -14,14 +14,14 @@ input_pickable = false
 collision_layer = 8
 collision_mask = 3
 mode = 0
-mass = 1.0
-friction = 1.0
-bounce = 0.0
+mass = 2.0
+friction = 0.0
+bounce = 1.0
 gravity_scale = 0.0
 custom_integrator = false
 continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
+contacts_reported = 2
+contact_monitor = true
 sleeping = false
 can_sleep = true
 linear_velocity = Vector2( 0, 0 )
@@ -29,18 +29,18 @@ linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-position = Vector2( 1.90735e-06, 1.90735e-06 )
-scale = Vector2( 2.46154, 2.46154 )
+scale = Vector2( 1.5, 1.5 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="CollisionShape2D" index="0"]
 
-position = Vector2( -7.7486e-07, -7.7486e-07 )
 scale = Vector2( 0.40625, 0.40625 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 
