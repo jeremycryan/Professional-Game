@@ -7,10 +7,10 @@ path="res://.import/musicSample.wav-1ec79c30741a9df87120b8f8d5afa3f6.sample"
 [deps]
 
 source_file="res://musicSample.wav"
-source_md5="b1a4887150254f02180e72277f904810"
+source_md5="5c0f22585bb10cf34f3f81b60055421d"
 
 dest_files=[ "res://.import/musicSample.wav-1ec79c30741a9df87120b8f8d5afa3f6.sample" ]
-dest_md5="c2f107e850c3dbbd213c79ebd7d7dc09"
+dest_md5="886642cd155ebf44325a78365fa568fd"
 
 [params]
 

@@ -12,7 +12,7 @@ extents = Vector2( 24.7634, 24.8689 )
 [node name="Player" type="RigidBody2D" index="0"]
 
 input_pickable = false
-collision_layer = 1
+collision_layer = 4
 collision_mask = 1
 mode = 0
 mass = 1.0
@@ -30,6 +30,7 @@ linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
