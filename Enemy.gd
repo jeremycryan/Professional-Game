@@ -11,7 +11,10 @@ func _ready():
 
 func _process(delta):
 	if player:
-		var dx = player.position - position
-		set_applied_torque(omega)
-		print(dx)
-
+		var theta = sin(get_angle_to(player.global_position)+PI/2)
+		if theta>5*PI/180:
+			set_applied_torque(-omega)
+		elif theta<-5*PI/180:
+			set_applied_torque(omega)
+		else:
+			set_applied_torque(0)

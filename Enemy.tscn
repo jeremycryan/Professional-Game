@@ -8,13 +8,12 @@
 custom_solver_bias = 0.0
 extents = Vector2( 30, 30 )
 
-[node name="Enemy" type="Node" index="0"]
+[node name="Enemy" type="Node2D" index="0"]
 
-_sections_unfolded = [ "Pause" ]
+_sections_unfolded = [ "Pause", "Transform" ]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." index="0"]
 
-position = Vector2( 100, 100 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -35,7 +34,7 @@ angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
-omega = 300
+omega = 500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" index="0"]
 
