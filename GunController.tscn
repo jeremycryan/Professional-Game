@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://GunController.gd" type="Script" id=1]
+
+[node name="GunController" type="Node2D"]
+
+visible = false
+script = ExtResource( 1 )
+
+
