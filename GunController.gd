@@ -10,7 +10,7 @@ var parent;
 var grandparent;
 #var bulletInst = null;
 var bulletRef = null;
-var shootSpeed = 100;
+var shootSpeed = 600;
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -54,7 +54,7 @@ func _process(delta):
 		var bulletInst = bulletFab.instance();
 		grandparent.add_child(bulletInst);
 		bulletInst.set_global_position(global_position);
-		bulletInst.linear_velocity = parent.linear_velocity; #Eventually when doing non-inertial don't transfer this velocity
+		#bulletInst.linear_velocity = parent.linear_velocity; #Eventually when doing non-inertial don't transfer this velocity
 		var shootStrength = shootSpeed * bulletInst.mass
 		print(shootSpeed*shootdir)
 		
