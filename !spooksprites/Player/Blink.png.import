@@ -10,7 +10,7 @@ source_file="res://!spooksprites/Player/Blink.png"
 source_md5="a6005f4bd95581b482aa8d401984cbd4"
 
 dest_files=[ "res://.import/Blink.png-d365cb99dec8c7171717ca9e0d0ee2f2.stex" ]
-dest_md5="0f3b2b8cef3a14c0e9ef5c8933335412"
+dest_md5="4af10ee616a0d0f193003f6f0306986a"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

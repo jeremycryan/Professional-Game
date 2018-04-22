@@ -14,6 +14,7 @@ var new_anim = "Idle"
 
 func animate(animation):
 	var a_sprite = find_node(animation);
+	print(a_sprite)
 	if not anim.is_playing():
 		anim.play(animation)
 	elif animation == cur_anim:
@@ -48,12 +49,13 @@ func _process(delta):
 	new_impulse += jumping;
 	
 	#	Set default animation to idle in direction currently facing	
-	if cur_anim in ["RunRight", "Idle"]:
+	if cur_anim in ["BlinkRight", "BlinkLeft"]:
+		pass
+	elif cur_anim in ["RunRight", "Idle"]:
 		new_anim = "Idle";
 	else:
 		new_anim = "IdleLeft"
 		
-	#	
 	if motion.x > 0:
 		new_anim = "RunRight";
 	elif motion.x < 0:

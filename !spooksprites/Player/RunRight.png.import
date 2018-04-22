@@ -7,10 +7,10 @@ path="res://.import/RunRight.png-4a9d93259f8975f08254dd7c88b3da3c.stex"
 [deps]
 
 source_file="res://!spooksprites/Player/RunRight.png"
-source_md5="17dc6cc22b730f70bc6643f8ef42b4bb"
+source_md5="5705c6088e6b7ecdf73fad47ce0a0cfa"
 
 dest_files=[ "res://.import/RunRight.png-4a9d93259f8975f08254dd7c88b3da3c.stex" ]
-dest_md5="8c93bf694de123a710c898b7b940a0ac"
+dest_md5="6d527af58badeba45fbc6271ea457f1c"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
