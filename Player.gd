@@ -14,7 +14,6 @@ var new_anim = "Idle"
 
 func animate(animation):
 	var a_sprite = find_node(animation);
-	print(a_sprite)
 	if not anim.is_playing():
 		anim.play(animation)
 	elif animation == cur_anim:
