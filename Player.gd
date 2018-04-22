@@ -13,6 +13,7 @@ var jumpStrength = -500;
 var speed = 1000;
 var jumping = Vector2(0,0);
 var canJump = false;
+var die = false;
 
 onready var anim = get_node("player_anim");
 var cur_anim = "Idle"
@@ -106,19 +107,26 @@ func _on_Floor_collided():
 	canJump = true;
 
 func BulletSwap(p, b):
+	die = false;
 	var checkEnemies = get_node("Dash");
 	checkEnemies.cast_to = b.global_position - p.global_position;
 	checkEnemies.force_raycast_update();
 	if checkEnemies.is_colliding():
 		var enemy = checkEnemies.get_collider();
-		print(enemy);
-		if enemy.get_parent().is_in_group("enemy"):
-			print(enemy);
-			enemy.free();
-	
-	var temp = b.global_position
-	b.global_position = p.global_position
-	p.global_position = temp
-	var templin = b.linear_velocity;
-	b.linear_velocity = p.linear_velocity
-	p.linear_velocity = templin
+		if enemy.is_in_group("shield"):
+			die = true;
+		elif enemy.get_parent().is_in_group("enemy"):
+			enemy.get_parent().free();
+			
+	if !die:
+		var temp = b.global_position
+		b.global_position = p.global_position
+		p.global_position = temp
+		var templin = b.linear_velocity;
+		b.linear_velocity = p.linear_velocity
+		p.linear_velocity = templin
+	else:
+		var temp = b.global_position
+		b.global_position = p.global_position
+		p.global_position = checkEnemies.get_collision_point()
+		b.linear_velocity = p.linear_velocity

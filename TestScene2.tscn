@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://NewDemoTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://GrappleableWall.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://SlowEnemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Kamikaze.tscn" type="PackedScene" id=10]
+[ext_resource path="res://ArmorEnemy.tscn" type="PackedScene" id=11]
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -145,6 +146,14 @@ position = Vector2( 814.065, 1093.37 )
 
 _sections_unfolded = [ "Collision", "Linear", "Transform" ]
 
+[node name="ArmorEnemy" parent="." index="4" instance=ExtResource( 11 )]
+
+position = Vector2( 181.415, -34.1372 )
+
+[node name="RigidBody2D2" parent="ArmorEnemy" index="3"]
+
+position = Vector2( 2.26627, 39.9611 )
+
 [connection signal="collided" from="Maps/Floor" to="Player" method="_on_Floor_collided"]
 
 [connection signal="body_entered" from="Player" to="Maps/Floor" method="_on_Player_body_entered"]
@@ -154,3 +163,4 @@ _sections_unfolded = [ "Collision", "Linear", "Transform" ]
 [editable path="Enemies/Enemy"]
 [editable path="Enemies/SlowEnemy"]
 [editable path="Enemies/Kamikaze"]
+[editable path="ArmorEnemy"]
