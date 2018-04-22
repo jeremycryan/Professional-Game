@@ -31,7 +31,7 @@ radius = 10.0
 
 input_pickable = false
 collision_layer = 8
-collision_mask = 3
+collision_mask = 131
 mode = 0
 mass = 2.0
 friction = 0.0
@@ -48,7 +48,7 @@ linear_damp = 0.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="anim_player" type="AnimationPlayer" parent="." index="0"]
 

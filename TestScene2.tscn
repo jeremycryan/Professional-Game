@@ -126,10 +126,6 @@ script = ExtResource( 7 )
 
 position = Vector2( 758.174, 775.879 )
 
-[node name="RigidBody2D" parent="Enemies/Enemy" index="0"]
-
-_sections_unfolded = [ "Collision", "Linear", "Transform" ]
-
 [node name="Enemy2" parent="Enemies" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( 1082.75, 784.841 )
@@ -138,17 +134,9 @@ position = Vector2( 1082.75, 784.841 )
 
 position = Vector2( 356.709, -41.7425 )
 
-[node name="RigidBody2D" parent="Enemies/SlowEnemy" index="0"]
-
-_sections_unfolded = [ "Collision", "Linear", "Transform" ]
-
 [node name="Kamikaze" parent="Enemies" index="3" instance=ExtResource( 10 )]
 
 position = Vector2( 814.065, 1093.37 )
-
-[node name="RigidBody2D" parent="Enemies/Kamikaze" index="0"]
-
-_sections_unfolded = [ "Collision", "Linear", "Transform" ]
 
 [node name="ArmorEnemy" parent="." index="4" instance=ExtResource( 11 )]
 

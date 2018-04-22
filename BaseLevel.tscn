@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://NewDemoTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://GrappleableWall.gd" type="Script" id=2]
 [ext_resource path="res://ReflectorTileSet.tres" type="TileSet" id=3]
 [ext_resource path="res://Floor.gd" type="Script" id=4]
-[ext_resource path="res://NewPlayer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://GameCamera.gd" type="Script" id=6]
+[ext_resource path="res://BulletPassTileSet.tres" type="TileSet" id=5]
+[ext_resource path="res://PlayerPassTileSet.tres" type="TileSet" id=6]
+[ext_resource path="res://SpikeTileSet.tres" type="TileSet" id=7]
+[ext_resource path="res://DangerBlock.gd" type="Script" id=8]
+[ext_resource path="res://NewPlayer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://GameCamera.gd" type="Script" id=10]
 
-[node name="BaseLevel" type="Node2D"]
+[node name="BaseLevel" type="Node2D" index="0"]
 
 [node name="Maps" type="Node2D" parent="." index="0"]
 
@@ -75,7 +79,73 @@ format = 1
 tile_data = PoolIntArray( 65537, -1610612736, 0 )
 script = ExtResource( 4 )
 
-[node name="Player" parent="." index="1" instance=ExtResource( 5 )]
+[node name="BulletPass" type="TileMap" parent="Maps" index="3"]
+
+mode = 0
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 32
+collision_mask = 4
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 65538, 0, 0 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="PlayerPass" type="TileMap" parent="Maps" index="4"]
+
+mode = 0
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 128
+collision_mask = 8
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 131069, 0, 0 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="Spikes" type="TileMap" parent="Maps" index="5" groups=[
+"dangerblock",
+]]
+
+mode = 0
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 32
+collision_mask = 4
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 65539, 0, 0 )
+script = ExtResource( 8 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="Player" parent="." index="1" instance=ExtResource( 9 )]
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
 
@@ -101,7 +171,7 @@ drag_margin_bottom = 0.0
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-script = ExtResource( 6 )
+script = ExtResource( 10 )
 
 [connection signal="collided" from="Maps/Floor" to="Player" method="_on_Floor_collided"]
 
