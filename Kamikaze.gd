@@ -17,6 +17,8 @@ func _process(delta):
 	for body in get_colliding_bodies():
 		if not body.get_parent().name == "Spawner":
 			queue_free()
+			get_parent().get_parent().remove_child(get_parent())
+	#print(get_parent().get_parent())
 		# TODO: Death animation/explosion
 	if player:
 		var theta = get_angle_to(player.global_position)+PI/2
@@ -31,6 +33,8 @@ func _process(delta):
 			set_applied_torque(0)
 			if raycast() and dist < sightRange and cos(theta)<0:
 				triggered = true
+				if get_parent().get_parent() is StaticBody2D:
+					get_parent().get_parent().launch()
 				angle = global_rotation
 				angular_damp = 100
 
