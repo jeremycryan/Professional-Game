@@ -58,7 +58,7 @@ func _process(delta):
 		bulletRef = weakref(bulletInst)
 		
 	if (Input.is_action_just_pressed("tele") and bulletRef != null and bulletRef.get_ref()):
-		BulletSwap(parent, bulletRef.get_ref());
+		BulletSwap(self, bulletRef.get_ref());
 	
 	if (Input.is_action_pressed("mv_right")):
 		motion.x += 1;
