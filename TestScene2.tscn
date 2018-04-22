@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://NewDemoTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://GrappleableWall.gd" type="Script" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://Floor.gd" type="Script" id=4]
 [ext_resource path="res://GameCamera.gd" type="Script" id=5]
 [ext_resource path="res://NewPlayer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=7]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 [node name="Maps" type="Node2D" parent="." index="0"]
 
@@ -106,6 +107,16 @@ script = ExtResource( 5 )
 _sections_unfolded = [ "Drag Margin", "Smoothing" ]
 
 [node name="Player" parent="." index="2" instance=ExtResource( 6 )]
+
+[node name="Node2D" type="Node2D" parent="." index="3"]
+
+[node name="Enemy" parent="Node2D" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( 1088.32, 252.2 )
+
+[node name="Enemy2" parent="Node2D" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 490.768, -38.6252 )
 
 [connection signal="collided" from="Maps/Floor" to="Player" method="_on_Floor_collided"]
 
