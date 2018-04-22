@@ -9,7 +9,9 @@ var triggered = false
 var angle = 0
 
 func _ready():
-	player = get_node("/root/Node2D/Player")
+	player = get_node("/root").get_child(0).find_node("Player")
+	#player = get_node("/root/Node2D/Player")
+	#player = find_node("Player")
 
 func _process(delta):
 	for body in get_colliding_bodies():

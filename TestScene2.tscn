@@ -30,7 +30,7 @@ cell_clip_uv = false
 collision_use_kinematic = true
 collision_friction = 1.0
 collision_bounce = 0.0
-collision_layer = 1
+collision_layer = 13
 collision_mask = 12
 occluder_light_mask = 1
 format = 1
@@ -52,7 +52,7 @@ cell_clip_uv = false
 collision_use_kinematic = false
 collision_friction = 0.0
 collision_bounce = 1.0
-collision_layer = 2
+collision_layer = 10
 collision_mask = 8
 occluder_light_mask = 1
 format = 1
@@ -75,7 +75,7 @@ cell_clip_uv = false
 collision_use_kinematic = false
 collision_friction = 1.0
 collision_bounce = 0.0
-collision_layer = 1
+collision_layer = 13
 collision_mask = 8
 occluder_light_mask = 1
 format = 1
@@ -126,6 +126,10 @@ script = ExtResource( 7 )
 
 position = Vector2( 758.174, 775.879 )
 
+[node name="RigidBody2D" parent="Enemies/Enemy" index="0"]
+
+_sections_unfolded = [ "Collision", "Linear", "Transform" ]
+
 [node name="Enemy2" parent="Enemies" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( 1082.75, 784.841 )
@@ -155,6 +159,8 @@ position = Vector2( 181.415, -34.1372 )
 position = Vector2( 2.26627, 39.9611 )
 
 [connection signal="collided" from="Maps/Floor" to="Player" method="_on_Floor_collided"]
+
+[connection signal="hit" from="Maps/Floor" to="Player" method="_on_Floor_hit"]
 
 [connection signal="body_entered" from="Player" to="Maps/Floor" method="_on_Player_body_entered"]
 

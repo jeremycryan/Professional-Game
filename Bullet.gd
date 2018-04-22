@@ -7,8 +7,10 @@ const standable = false
 onready var anim = find_node("anim_player")
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
+	set_collision_mask_bit(0, false);
+	set_collision_mask_bit(0, false);
+	set_collision_mask_bit(3, true);
+	set_collision_layer_bit(3, true);
 	pass
 
 func _process(delta):
@@ -29,5 +31,5 @@ func _process(delta):
 
 func _integrate_forces(state):
 	for i in range(0, state.get_contact_count()):
-		if (state.get_contact_collider_object(i).get_collision_layer_bit(0)):
+		if (state.get_contact_collider_object(i).get_collision_layer_bit(2)):
 			queue_free()

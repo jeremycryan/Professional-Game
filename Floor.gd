@@ -1,5 +1,6 @@
 extends TileMap
 signal collided
+signal hit
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
@@ -18,3 +19,5 @@ func _ready():
 func _on_Player_body_entered(body):
 	if body.is_in_group("floor"):
 		emit_signal("collided");
+	if (body.is_in_group("enemy") or body.get_parent().is_in_group("enemy")):
+		emit_signal("hit");
