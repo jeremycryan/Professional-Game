@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://GunController.gd" type="Script" id=2]
-[ext_resource path="res://!spooksprites/Player/Idle.png" type="Texture" id=3]
-[ext_resource path="res://!spooksprites/Player/Blink.png" type="Texture" id=4]
-[ext_resource path="res://!spooksprites/Player/RunRight.png" type="Texture" id=5]
+[ext_resource path="res://!spooksprites/Player/Idle.png" type="Texture" id=2]
+[ext_resource path="res://!spooksprites/Player/Blink.png" type="Texture" id=3]
+[ext_resource path="res://!spooksprites/Player/RunRight.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -122,7 +121,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[node name="Player" type="RigidBody2D"]
+[node name="Player" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 4
@@ -151,11 +150,7 @@ scale = Vector2( 2, 2 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="GunController" type="Node2D" parent="." index="1"]
-
-script = ExtResource( 2 )
-
-[node name="player_anim" type="AnimationPlayer" parent="." index="2"]
+[node name="player_anim" type="AnimationPlayer" parent="." index="1"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -170,14 +165,14 @@ anims/RunLeft = SubResource( 6 )
 anims/RunRight = SubResource( 7 )
 blend_times = [  ]
 
-[node name="Sprites" type="Node2D" parent="." index="3"]
+[node name="Sprites" type="Node2D" parent="." index="2"]
 
 scale = Vector2( 2, 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Idle" type="Sprite" parent="Sprites" index="0"]
 
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 hframes = 8
 frame = 7
 _sections_unfolded = [ "Animation", "Transform" ]
@@ -185,7 +180,7 @@ _sections_unfolded = [ "Animation", "Transform" ]
 [node name="IdleLeft" type="Sprite" parent="Sprites" index="1"]
 
 visible = false
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 flip_h = true
 hframes = 8
 frame = 7
@@ -194,7 +189,7 @@ _sections_unfolded = [ "Animation", "Transform" ]
 [node name="BlinkRight" type="Sprite" parent="Sprites" index="2"]
 
 visible = false
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 hframes = 8
 frame = 7
 _sections_unfolded = [ "Animation", "Transform" ]
@@ -202,7 +197,7 @@ _sections_unfolded = [ "Animation", "Transform" ]
 [node name="BlinkLeft" type="Sprite" parent="Sprites" index="3"]
 
 visible = false
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 hframes = 8
 frame = 7
 _sections_unfolded = [ "Animation", "Transform" ]
@@ -211,7 +206,7 @@ _sections_unfolded = [ "Animation", "Transform" ]
 
 visible = false
 position = Vector2( -8, 0 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 hframes = 8
 frame = 7
 _sections_unfolded = [ "Animation", "Transform" ]
@@ -220,7 +215,7 @@ _sections_unfolded = [ "Animation", "Transform" ]
 
 visible = false
 position = Vector2( 8, 0 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 flip_h = true
 hframes = 8
 frame = 7

@@ -1,5 +1,12 @@
 extends RigidBody2D
 
+
+var bulletFab = preload("res://Bullet.tscn");
+
+var parent;
+var grandparent;
+var bulletRef = null;
+var shootSpeed = 500;
 var motion = Vector2();
 var new_impulse = Vector2();
 var gravity = Vector2(0, 10);
@@ -29,7 +36,29 @@ func animate(animation):
 func _process(delta):
 	motion = Vector2(0,0);
 	jumping = Vector2(0,0);
+	var space_state = get_world_2d().get_direct_space_state()
 	
+	if (Input.is_action_just_pressed("shoot")):
+		if (bulletRef != null and bulletRef.get_ref()):
+			bulletRef.get_ref().queue_free()
+			bulletRef = null
+			pass
+		
+		# OPTION: Mouse-based
+		var mouse_pos_diff = (get_global_mouse_position() - global_position);
+		var shootdir = mouse_pos_diff.normalized();
+		
+		var bulletInst = bulletFab.instance();
+		grandparent.add_child(bulletInst);
+		bulletInst.set_global_position(global_position);
+		var shootStrength = shootSpeed * bulletInst.mass
+		
+		bulletInst.apply_impulse(Vector2(), shootSpeed*shootdir)
+		
+		bulletRef = weakref(bulletInst)
+		
+	if (Input.is_action_just_pressed("tele") and bulletRef != null and bulletRef.get_ref()):
+		BulletSwap(parent, bulletRef.get_ref());
 	
 	if (Input.is_action_pressed("mv_right")):
 		motion.x += 1;
@@ -69,9 +98,19 @@ func _process(delta):
 	
 func _ready():
 	anim.play("Idle");
+	parent = get_node("self")
+	grandparent = get_node("..")
 	
 	set_contact_monitor(true);
 	set_max_contacts_reported(5);
 
 func _on_Floor_collided():
 	canJump = true;
+
+func BulletSwap(p, b):
+	var temp = b.global_position
+	b.global_position = p.global_position
+	p.global_position = temp
+	var templin = b.linear_velocity;
+	b.linear_velocity = p.linear_velocity
+	p.linear_velocity = templin
