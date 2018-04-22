@@ -8,7 +8,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 30, 30 )
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="Node2D" groups=[
+"enemy",
+]]
 
 _sections_unfolded = [ "Pause", "Transform" ]
 
@@ -37,7 +39,7 @@ _sections_unfolded = [ "Linear", "Transform" ]
 omega = 2000.0
 v = 10000.0
 vmax = 500.0
-sightRange = 2000
+sightRange = 2000.0
 aim = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" index="0"]

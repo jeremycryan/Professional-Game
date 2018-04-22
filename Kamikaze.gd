@@ -14,7 +14,7 @@ func _ready():
 func _process(delta):
 	for body in get_colliding_bodies():
 		if not body.get_parent().name == "Spawner":
-			pass#queue_free()
+			queue_free()
 		# TODO: Death animation/explosion
 	if player:
 		var theta = get_angle_to(player.global_position)+PI/2
@@ -30,6 +30,7 @@ func _process(delta):
 			if raycast() and dist < sightRange and cos(theta)<0:
 				triggered = true
 				angle = global_rotation
+				angular_damp = 100
 
 func raycast():
 	var space_state = get_world_2d().direct_space_state
