@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+export var door_type = 0
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
@@ -18,12 +19,30 @@ func _ready():
 
 func button_body_entered(body):
 	if(currentBody == null):
-		currentBody = body
-		set_collision_layer_bit(0,false)
-		get_child(1).hide()
+		if(door_type == 0):  # door disappears only while button is pressed
+			currentBody = body
+			set_collision_layer_bit(0,false)
+			get_child(1).hide()
+		elif(door_type == 1): # door disappears and reappears after 1 second
+			set_collision_layer_bit(0,false)
+			get_child(1).hide()
+			
+			var t = Timer.new()
+			t.set_wait_time(1)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			
+			set_collision_layer_bit(0,true)
+			get_child(1).show()
+		elif(door_type == 2): # door disappears permenantly 
+			set_collision_layer_bit(0,false)
+			get_child(1).hide()
 	
 func button_body_exited(body):	
 	if(currentBody == body):
-		set_collision_layer_bit(0,true)
-		get_child(1).show()
-		currentBody = null
+		if(door_type == 0):
+			set_collision_layer_bit(0,true)
+			get_child(1).show()
+			currentBody = null
