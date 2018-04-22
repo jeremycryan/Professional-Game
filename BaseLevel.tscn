@@ -1,15 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://NewDemoTileSet.tres" type="TileSet" id=1]
-[ext_resource path="res://GrappleableWall.gd" type="Script" id=2]
-[ext_resource path="res://ReflectorTileSet.tres" type="TileSet" id=3]
-[ext_resource path="res://Floor.gd" type="Script" id=4]
-[ext_resource path="res://BulletPassTileSet.tres" type="TileSet" id=5]
-[ext_resource path="res://PlayerPassTileSet.tres" type="TileSet" id=6]
-[ext_resource path="res://SpikeTileSet.tres" type="TileSet" id=7]
-[ext_resource path="res://DangerBlock.gd" type="Script" id=8]
-[ext_resource path="res://NewPlayer.tscn" type="PackedScene" id=9]
-[ext_resource path="res://GameCamera.gd" type="Script" id=10]
+[ext_resource path="res://ReflectorTileSet.tres" type="TileSet" id=2]
+[ext_resource path="res://BulletPassTileSet.tres" type="TileSet" id=3]
+[ext_resource path="res://PlayerPassTileSet.tres" type="TileSet" id=4]
+[ext_resource path="res://SpikeTileSet.tres" type="TileSet" id=5]
+[ext_resource path="res://NewPlayer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GameCamera.gd" type="Script" id=7]
 
 [node name="BaseLevel" type="Node2D"]
 
@@ -34,12 +31,11 @@ collision_mask = 12
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 131070, 0, 0 )
-script = ExtResource( 2 )
 
 [node name="Bouncers" type="TileMap" parent="Maps" index="1"]
 
 mode = 0
-tile_set = ExtResource( 3 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -77,12 +73,11 @@ collision_mask = 4
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 65537, -1610612736, 0 )
-script = ExtResource( 4 )
 
 [node name="BulletPass" type="TileMap" parent="Maps" index="3"]
 
 mode = 0
-tile_set = ExtResource( 5 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -103,7 +98,7 @@ _sections_unfolded = [ "Collision" ]
 [node name="PlayerPass" type="TileMap" parent="Maps" index="4"]
 
 mode = 0
-tile_set = ExtResource( 6 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -126,7 +121,7 @@ _sections_unfolded = [ "Collision" ]
 ]]
 
 mode = 0
-tile_set = ExtResource( 7 )
+tile_set = ExtResource( 5 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -142,10 +137,9 @@ collision_mask = 4
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 65539, 0, 0 )
-script = ExtResource( 8 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="Player" parent="." index="1" instance=ExtResource( 9 )]
+[node name="Player" parent="." index="1" instance=ExtResource( 6 )]
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
 
@@ -171,14 +165,6 @@ drag_margin_bottom = 0.0
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-script = ExtResource( 10 )
-
-[connection signal="collided" from="Maps/Floor" to="Player" method="_on_Floor_collided"]
-
-[connection signal="collided" from="Maps/Spikes" to="Player" method="_on_Spikes_collided"]
-
-[connection signal="body_entered" from="Player" to="Maps/Spikes" method="_on_Player_body_entered"]
-
-[connection signal="body_entered" from="Player" to="Maps/Floor" method="_on_Player_body_entered"]
+script = ExtResource( 7 )
 
 
