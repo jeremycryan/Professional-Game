@@ -7,12 +7,25 @@ var grandparent;
 var bulletRef = null;
 var shootSpeed = 500;
 var motion = Vector2();
-var new_impulse = Vector2();
-var gravity = Vector2(0, 10);
+#var new_impulse = Vector2();
+var gravity = Vector2(0, 15);
 var jumpStrength = -500;
-var speed = 1000;
-var jumping = Vector2(0,0);
-var canJump = false;
+#var speed = 1000;
+
+var airaccel = 4000;
+var groundaccel = 4000;
+var maxHoriSpeed = 500;
+
+#var termvel_x = 99999; #Terminal Velocity
+
+var jumpClock = 0; #jump timer
+var jumpTime = .5; #number of seconds after leaving ground at which you can jump
+var jumpDebounceTime = .05;
+var jumpDebounceClock = 0;
+onready var groundChecker = get_node("Grounded");
+
+#var jumping = 0;
+#var canJump = false;
 var die = false;
 var dashNum = 3;
 var dashes = dashNum;
@@ -41,7 +54,7 @@ func animate(animation):
 		anim.play(animation);
 		cur_anim = animation
 
-func _process(delta):	
+func _process(delta):
 	for dash_line in dashLines:
 		if dash_line[2] > 0:
 			dash_line[2] -= delta;
@@ -56,9 +69,18 @@ func _process(delta):
 			
 	update();
 	
+	if (groundChecker.grounded and jumpDebounceClock > jumpDebounceTime):
+		jumpClock = 0;
+		dashes = dashNum
+	
 	motion = Vector2(0,0);
-	jumping = Vector2(0,0);
+	#jumping = Vector2(0,0);
+	var jumping = false;
 	var space_state = get_world_2d().get_direct_space_state()
+	
+	
+	jumpClock += delta;
+	jumpDebounceClock += delta;
 	
 	if (Input.is_action_just_pressed("shoot")):
 		if (bulletRef != null and bulletRef.get_ref()):
@@ -88,17 +110,26 @@ func _process(delta):
 	if (Input.is_action_pressed("mv_left")):
 		motion.x -= 1;
 	if (Input.is_action_pressed("mv_up")):
-		if canJump:
-			jumping = Vector2(0,jumpStrength);
-			canJump = false;
+		if (jumpClock < jumpTime):
+			jumping = true
+			jumpClock += jumpTime+1;
+			jumpDebounceClock = 0;
+			#canJump = false;
 	if (Input.is_action_pressed("mv_down")):
 		motion.y += 1;
 		
+	var accel = Vector2()
+	if (groundChecker.grounded):
+		accel.x = (motion.x - linear_velocity.x/maxHoriSpeed) * groundaccel
+	else:
+		accel.x = (motion.x - linear_velocity.x/maxHoriSpeed) * airaccel
+	
 	motion = motion.normalized();
 	
-	new_impulse = motion * delta * speed;
+	var new_impulse = accel * delta;
 	new_impulse += gravity;
-	new_impulse += jumping;
+	if (jumping == true):
+		linear_velocity.y = jumpStrength;
 	
 	#	Set default animation to idle in direction currently facing	
 	if cur_anim in ["BlinkRight", "BlinkLeft"]:
@@ -137,9 +168,15 @@ func _ready():
 	set_contact_monitor(true);
 	set_max_contacts_reported(5);
 
-func _on_Floor_collided():
-	canJump = true
-	dashes = dashNum
+"""func _on_Floor_collided():
+	#canJump = true
+	jumpClock = 0;
+	dashes = dashNum"""
+
+"""func _integrate_forces(state):
+	if (state.linear_velocity.length() > termvel):
+		state.linear_velocity = state.linear_velocity.normalized() * termvel;"""
+	
 
 #Swap positions and velocities with the bullet
 func BulletSwap(p, b):

@@ -114,7 +114,7 @@ _sections_unfolded = [ "Drag Margin", "Smoothing" ]
 
 editor/display_folded = true
 
-[node name="Sprites" parent="Player" index="3"]
+[node name="Sprites" parent="Player" index="4"]
 
 editor/display_folded = true
 

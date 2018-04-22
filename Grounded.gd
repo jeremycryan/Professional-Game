@@ -1,23 +1,27 @@
-extends TileMap
-signal collided
-signal hit
+extends Node2D
+
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
 
+var rays;
+var grounded = true;
+
 func _ready():
+	rays = get_children();
+	set_process(true);
 	# Called every time the node is added to the scene.
 	# Initialization here
 	pass
 
-#func _process(delta):
+func _process(delta):
+	grounded = false;
+	for ray in rays:
+		ray.force_raycast_update()
+		if (ray.is_colliding()):
+			grounded = true;
+			break
+			
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
-
-
-func _on_Player_body_entered(body):
-	#if body.is_in_group("floor"):
-		#emit_signal("collided");
-	if (body.is_in_group("enemy") or body.get_parent().is_in_group("enemy")):
-		emit_signal("hit");
