@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://NewDemoTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://GrappleableWall.gd" type="Script" id=2]
@@ -6,7 +6,10 @@
 [ext_resource path="res://Floor.gd" type="Script" id=4]
 [ext_resource path="res://GameCamera.gd" type="Script" id=5]
 [ext_resource path="res://NewPlayer.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemyParent.gd" type="Script" id=7]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://SlowEnemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Kamikaze.tscn" type="PackedScene" id=10]
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -108,18 +111,46 @@ _sections_unfolded = [ "Drag Margin", "Smoothing" ]
 
 [node name="Player" parent="." index="2" instance=ExtResource( 6 )]
 
-[node name="Node2D" type="Node2D" parent="." index="3"]
+editor/display_folded = true
 
-[node name="Enemy" parent="Node2D" index="0" instance=ExtResource( 7 )]
+[node name="Sprites" parent="Player" index="3"]
 
-position = Vector2( 1088.32, 252.2 )
+editor/display_folded = true
 
-[node name="Enemy2" parent="Node2D" index="1" instance=ExtResource( 7 )]
+[node name="Enemies" type="Node2D" parent="." index="3"]
 
-position = Vector2( 490.768, -38.6252 )
+script = ExtResource( 7 )
+
+[node name="Enemy" parent="Enemies" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 758.174, 775.879 )
+
+[node name="Enemy2" parent="Enemies" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 1082.75, 784.841 )
+
+[node name="SlowEnemy" parent="Enemies" index="2" instance=ExtResource( 9 )]
+
+position = Vector2( 356.709, -41.7425 )
+
+[node name="RigidBody2D" parent="Enemies/SlowEnemy" index="0"]
+
+_sections_unfolded = [ "Collision", "Linear", "Transform" ]
+
+[node name="Kamikaze" parent="Enemies" index="3" instance=ExtResource( 10 )]
+
+position = Vector2( 814.065, 1093.37 )
+
+[node name="RigidBody2D" parent="Enemies/Kamikaze" index="0"]
+
+_sections_unfolded = [ "Collision", "Linear", "Transform" ]
 
 [connection signal="collided" from="Maps/Floor" to="Player" method="_on_Floor_collided"]
 
 [connection signal="body_entered" from="Player" to="Maps/Floor" method="_on_Player_body_entered"]
 
 
+[editable path="Player"]
+[editable path="Enemies/Enemy"]
+[editable path="Enemies/SlowEnemy"]
+[editable path="Enemies/Kamikaze"]

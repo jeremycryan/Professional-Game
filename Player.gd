@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-
 var bulletFab = preload("res://Bullet.tscn");
 
 var parent;
@@ -21,7 +20,6 @@ var new_anim = "Idle"
 
 func animate(animation):
 	var a_sprite = find_node(animation);
-	print(a_sprite)
 	if not anim.is_playing():
 		anim.play(animation)
 	elif animation == cur_anim:
@@ -108,6 +106,16 @@ func _on_Floor_collided():
 	canJump = true;
 
 func BulletSwap(p, b):
+	var checkEnemies = get_node("Dash");
+	checkEnemies.cast_to = b.global_position - p.global_position;
+	checkEnemies.force_raycast_update();
+	if checkEnemies.is_colliding():
+		var enemy = checkEnemies.get_collider();
+		print(enemy);
+		if enemy.get_parent().is_in_group("enemy"):
+			print(enemy);
+			enemy.free();
+	
 	var temp = b.global_position
 	b.global_position = p.global_position
 	p.global_position = temp

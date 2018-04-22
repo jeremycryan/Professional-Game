@@ -4,33 +4,37 @@ export (float) var omega = 1000
 export (float) var v = 2000
 export (float) var vmax = 100
 export (float) var sightRange = 2000
-export (bool) var aim = true
-
 var player
+var triggered = false
+var angle = 0
 
 func _ready():
 	player = get_node("/root/Node2D/Player")
 
 func _process(delta):
+	for body in get_colliding_bodies():
+		if not body.get_parent().name == "Spawner":
+			queue_free()
+		# TODO: Death animation/explosion
 	if player:
 		var theta = get_angle_to(player.global_position)+PI/2
 		var dist = (player.global_position - global_position).length()
-		if sin(theta)>5*PI/180:
+		if triggered:
+			apply_impulse(Vector2(), Vector2(0,v*delta).rotated(angle))
+		elif sin(theta)>5*PI/180:
 			set_applied_torque(-omega)
 		elif sin(theta)<-5*PI/180:
 			set_applied_torque(omega)
 		else:
 			set_applied_torque(0)
-			if aim and raycast() and dist < sightRange and cos(theta)<0:
-				apply_impulse(Vector2(), Vector2(0,v*delta).rotated(global_rotation))
-		if not aim and raycast() and dist < sightRange and cos(theta)<0:
-			apply_impulse(Vector2(), (player.global_position - global_position).normalized()*v)
-				
+			if raycast() and dist < sightRange and cos(theta)<0:
+				triggered = true
+				angle = global_rotation
+				angular_damp = 100
+
 func raycast():
 	var space_state = get_world_2d().direct_space_state
 	var result = space_state.intersect_ray(global_position, player.global_position, [self])
-	if not result:
-		return false
 	return(result["collider"] is RigidBody2D)
 	
 func _integrate_forces(state):
