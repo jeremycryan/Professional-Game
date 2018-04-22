@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=9 format=2]
+=======
+[gd_scene load_steps=10 format=2]
+>>>>>>> 36ac730d4efeb15beecd548dd0dbcdef10016dd4
 
 [ext_resource path="res://NewDemoTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://GrappleableWall.gd" type="Script" id=2]
@@ -6,8 +10,14 @@
 [ext_resource path="res://Floor.gd" type="Script" id=4]
 [ext_resource path="res://GameCamera.gd" type="Script" id=5]
 [ext_resource path="res://NewPlayer.tscn" type="PackedScene" id=6]
+<<<<<<< HEAD
 [ext_resource path="res://enemyParent.gd" type="Script" id=7]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=8]
+=======
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://KamikazeSpawner.tscn" type="PackedScene" id=8]
+[ext_resource path="res://SlowEnemy.tscn" type="PackedScene" id=9]
+>>>>>>> 36ac730d4efeb15beecd548dd0dbcdef10016dd4
 
 [node name="Node2D" type="Node2D"]
 
@@ -60,6 +70,7 @@ _sections_unfolded = [ "Collision" ]
 "floor",
 ]]
 
+position = Vector2( -3.05176e-05, 0 )
 mode = 0
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 64, 64 )
@@ -109,9 +120,14 @@ _sections_unfolded = [ "Drag Margin", "Smoothing" ]
 
 [node name="Player" parent="." index="2" instance=ExtResource( 6 )]
 
+<<<<<<< HEAD
 [node name="Sprites" parent="Player" index="2"]
 
 editor/display_folded = true
+=======
+position = Vector2( 500, 0 )
+_sections_unfolded = [ "Collision", "Transform" ]
+>>>>>>> 36ac730d4efeb15beecd548dd0dbcdef10016dd4
 
 [node name="Node2D" type="Node2D" parent="." index="3"]
 
@@ -131,7 +147,13 @@ _sections_unfolded = [ "Collision", "Linear", "Transform" ]
 "enemy",
 ] instance=ExtResource( 8 )]
 
-position = Vector2( 490.768, -38.6252 )
+position = Vector2( 593.115, 261.627 )
+
+[node name="Spawner" parent="Node2D" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 206.339, -19.1292 )
+
+[node name="SlowEnemy" parent="Node2D" index="3" instance=ExtResource( 9 )]
 
 [node name="RigidBody2D" parent="Node2D/Enemy2" index="0"]
 
