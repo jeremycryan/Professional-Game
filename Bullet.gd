@@ -17,7 +17,6 @@ func _process(delta):
 	
 	var v = linear_velocity
 	var angle = atan2(v[1], v[0])
-	print(angle)
 	
 	var sprite = find_node("CollisionShape2D");
 	sprite.rotation = angle + PI/2
