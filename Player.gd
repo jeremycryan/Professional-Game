@@ -199,6 +199,7 @@ func BulletSwap(p, b):
 			for child in enemy.get_children(): #Delete the enemy and its children if it has been dashed through
 				child.free();
 			enemy.get_parent().free();
+			dashes += 1
 		else:
 			enemyPosition = checkEnemies.get_collision_point() + (b.global_position - p.global_position).normalized() * resolution_factor;
 		

@@ -12,7 +12,7 @@
 [ext_resource path="res://Kamikaze.tscn" type="PackedScene" id=10]
 [ext_resource path="res://ArmorEnemy.tscn" type="PackedScene" id=11]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 [node name="Maps" type="Node2D" parent="." index="0"]
 
