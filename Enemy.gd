@@ -1,8 +1,8 @@
 extends RigidBody2D
 
-export (float) var omega = 300
-export (float) var v = 100
-export (float) var sightRange = 200
+export (float) var omega = 5000
+export (float) var v = 3000
+export (float) var sightRange = 2000
 var player
 
 func _ready():
@@ -17,12 +17,9 @@ func _process(delta):
 		var dist = (player.global_position - transform.origin).length()
 		if sin(theta)>5*PI/180:
 			set_applied_torque(-omega)
-			applied_force *= 0.9
 		elif sin(theta)<-5*PI/180:
 			set_applied_torque(omega)
-			applied_force *= 0.9
 		else:
 			set_applied_torque(0)
-			applied_force *= 0.9
-			if dist > sightRange:
-				add_force(Vector2(), Vector2(v,0).rotated(theta))
+			if dist < sightRange:
+				apply_impulse(Vector2(), Vector2(0,v*delta).rotated(global_rotation))
