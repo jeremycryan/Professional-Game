@@ -194,3 +194,9 @@ func RestartLevel():
 func _on_Floor_hit():
 	print("Hit by an enemy");
 	Death();
+
+
+func _on_Spikes_collided():
+	print("Hit spikes")
+	Death();
+	pass # replace with function body
