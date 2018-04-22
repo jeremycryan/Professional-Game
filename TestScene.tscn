@@ -107,6 +107,8 @@ _sections_unfolded = [ "Drag Margin", "Smoothing" ]
 
 [node name="Player" parent="." index="2" instance=ExtResource( 6 )]
 
+mode = 2
+
 [connection signal="collided" from="Maps/Floor" to="Player" method="_on_Floor_collided"]
 
 [connection signal="body_entered" from="Player" to="Maps/Floor" method="_on_Player_body_entered"]
