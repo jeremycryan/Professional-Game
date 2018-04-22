@@ -165,6 +165,8 @@ func _ready():
 	
 	camera = get_node("/root").get_child(0).find_node("Camera2D");
 	
+	connect("body_entered", self, "_on_Player_body_entered");
+	
 	set_contact_monitor(true);
 	set_max_contacts_reported(5);
 
@@ -229,12 +231,16 @@ func Death():
 func RestartLevel():
 	get_tree().reload_current_scene();
 
-func _on_Floor_hit():
+func _on_Enemy_collided():
 	print("Hit by an enemy");
 	Death();
-
 
 func _on_Spikes_collided():
 	print("Hit spikes")
 	Death();
-	pass # replace with function body
+
+func _on_Player_body_entered(body):
+	if body.is_in_group("dangerblock"):
+		_on_Spikes_collided();
+	if (body.is_in_group("enemy") or body.get_parent().is_in_group("enemy")):
+		_on_Enemy_collided();
