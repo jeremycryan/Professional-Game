@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Grounded.gd" type="Script" id=2]
 [ext_resource path="res://!spooksprites/Player/Idle.png" type="Texture" id=3]
 [ext_resource path="res://!spooksprites/Player/Blink.png" type="Texture" id=4]
 [ext_resource path="res://!spooksprites/Player/RunRight.png" type="Texture" id=5]
+[ext_resource path="res://Sounds/TeleSound.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -258,5 +259,16 @@ flip_h = true
 hframes = 8
 frame = 7
 _sections_unfolded = [ "Transform" ]
+
+[node name="TeleSound" type="AudioStreamPlayer2D" parent="." index="5"]
+
+rotation = 0.143368
+stream = ExtResource( 6 )
+volume_db = -10.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 

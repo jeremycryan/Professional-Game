@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/TeleSound.wav-769acea5008e0cc34840a7823a65d9a0.sample"
+
+[deps]
+
+source_file="res://Sounds/TeleSound.wav"
+source_md5="6ba8337c39b00d66090a4e9c7b3866f7"
+
+dest_files=[ "res://.import/TeleSound.wav-769acea5008e0cc34840a7823a65d9a0.sample" ]
+dest_md5="6449fe8f655ed799101f8cba69507e59"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
