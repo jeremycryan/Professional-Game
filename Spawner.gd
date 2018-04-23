@@ -20,5 +20,6 @@ func reload():
 	kamikaze.set_global_position(global_position)
 	
 func launch():
-	fired = true
-	t0 = OS.get_ticks_msec()/1000.0 + cooldown
+	if not fired:
+		fired = true
+		t0 = OS.get_ticks_msec()/1000.0 + cooldown
