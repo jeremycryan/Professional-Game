@@ -33,5 +33,5 @@ func _integrate_forces(state):
 	for i in range(0, state.get_contact_count()):
 		if (state.get_contact_collider_object(i).get_collision_layer_bit(0)):
 			queue_free()
-		if (state.get_contact_collider_object(i).get_collision_layer_bit(8)):
+		if (state.get_contact_collider_object(i).get_collision_layer_bit(7)):
 			queue_free()
