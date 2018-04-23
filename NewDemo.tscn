@@ -39,6 +39,18 @@ tile_data = PoolIntArray( -65540, 0, 0, -4, 0, 0, -3, 0, 0, 65532, 0, 0, 65533, 
 
 tile_data = PoolIntArray( 1114116, 0, 0, 1114117, 0, 0, 1114118, 0, 0, 1114119, 0, 0, 1114121, 0, 0, 1114122, 0, 0, 1114123, 0, 0, 1114124, 0, 0 )
 
+<<<<<<< HEAD
+=======
+[node name="Button" parent="BaseLevel/Maps/Button Door" index="0"]
+
+position = Vector2( 47, 44 )
+
+[node name="Door" parent="BaseLevel/Maps/Button Door" index="1"]
+
+position = Vector2( 128, 43 )
+door_type = 2
+
+>>>>>>> 2f61f98f489218a6bf1b49403e0d30bb2046b181
 [node name="Enemies" type="Node2D" parent="." index="1"]
 
 [node name="ArmorEnemy" parent="Enemies" index="0" instance=ExtResource( 2 )]
