@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/FarGunshot.wav-27b22420e70fe31326e33ec1c4b852df.sample"
+
+[deps]
+
+source_file="res://Sounds/FarGunshot.wav"
+source_md5="a8d15dcbe57e3515979b5bd23b109f1e"
+
+dest_files=[ "res://.import/FarGunshot.wav-27b22420e70fe31326e33ec1c4b852df.sample" ]
+dest_md5="0cc44ca01d498ea5687d991ca2afe55e"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
