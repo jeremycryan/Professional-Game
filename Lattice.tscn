@@ -19,7 +19,7 @@ extents = Vector2( 31.9892, 7.56786 )
 custom_solver_bias = 0.0
 radius = 312.177
 
-[node name="LatticeEnemy" type="Node2D" groups=[
+[node name="LatticeEnemy" type="Node2D" index="0" groups=[
 "enemy",
 ]]
 
@@ -30,7 +30,7 @@ _sections_unfolded = [ "Pause", "Transform" ]
 ]]
 
 input_pickable = false
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 69
 mode = 0
 mass = 1.0
@@ -64,7 +64,7 @@ _sections_unfolded = [ "Transform" ]
 visible = false
 position = Vector2( -30.1879, 30.1879 )
 node_a = NodePath("../RigidBody2D")
-node_b = NodePath("../RigidBody2D2")
+node_b = NodePath("../Linkage")
 bias = 0.9
 disable_collision = true
 softness = 0.0
@@ -75,13 +75,13 @@ _sections_unfolded = [ "Visibility" ]
 visible = false
 position = Vector2( 30.0455, 30.0455 )
 node_a = NodePath("../RigidBody2D")
-node_b = NodePath("../RigidBody2D2")
+node_b = NodePath("../Linkage")
 bias = 0.9
 disable_collision = true
 softness = 0.0
 _sections_unfolded = [ "Visibility" ]
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="." index="3" groups=[
+[node name="Linkage" type="RigidBody2D" parent="." index="3" groups=[
 "shield",
 ]]
 
@@ -106,12 +106,12 @@ angular_velocity = 0.0
 angular_damp = -1.0
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2" index="0"]
+[node name="Armor" type="CollisionShape2D" parent="Linkage" index="0"]
 
 position = Vector2( 0, -0.47234 )
 shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="RigidBody2D2" index="1"]
+[node name="Sprite" type="Sprite" parent="Linkage" index="1"]
 
 texture = ExtResource( 2 )
 
@@ -122,9 +122,12 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_layer = 0
+collision_mask = 0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
 omega = 1000
 v = 0
 vmax = 0
