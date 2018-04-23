@@ -12,7 +12,7 @@ var gravity = Vector2(0, 15);
 var jumpStrength = -500;
 #var speed = 1000;
 
-var airaccel = 4000;
+var airaccel = 1500;
 var groundaccel = 4000;
 var maxHoriSpeed = 500;
 
@@ -122,7 +122,11 @@ func _process(delta):
 	if (groundChecker.grounded):
 		accel.x = (motion.x - linear_velocity.x/maxHoriSpeed) * groundaccel
 	else:
-		accel.x = (motion.x - linear_velocity.x/maxHoriSpeed) * airaccel
+		if (motion.x == 0):
+			pass
+		else:
+			accel.x = (motion.x - linear_velocity.x/maxHoriSpeed) * airaccel
+			
 	
 	motion = motion.normalized();
 	

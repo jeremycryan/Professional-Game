@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Button.gd" type="Script" id=1]
+[ext_resource path="res://button.png" type="Texture" id=2]
+[ext_resource path="res://Door.gd" type="Script" id=3]
+[ext_resource path="res://door.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Button" type="Area2D" parent="." index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+collision_mask = 12
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button" index="0"]
+
+position = Vector2( -4.76837e-07, 1.90735e-06 )
+scale = Vector2( 1.23077, 1.23077 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Button" index="1"]
+
+texture = ExtResource( 2 )
+
+[node name="Door" type="StaticBody2D" parent="." index="1"]
+
+position = Vector2( 128, 0 )
+input_pickable = true
+collision_layer = 1
+collision_mask = 0
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+door_type = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" index="0"]
+
+position = Vector2( -2.14577e-06, 0 )
+scale = Vector2( 1.23077, 1.23077 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Door" index="1"]
+
+texture = ExtResource( 4 )
+
+
