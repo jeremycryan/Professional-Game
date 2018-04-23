@@ -202,6 +202,14 @@ func BulletSwap(p, b):
 			die = true;
 			print("Ran into a shield");
 			break;
+		elif enemy.is_in_group("lattice"): #If you hit the electric lattice
+			die = true;
+			print("Electrocuted!");
+			break;
+		elif enemy.is_in_group("invincible"): #If you hit the electric lattice
+			die = true;
+			print("Ran into invincible enemy!");
+			break;
 		elif enemy.get_parent().is_in_group("enemy"):
 			enemyPosition = enemy.global_position;
 			bloodSplats.push_back([enemyPosition, bloodSplatTime]);

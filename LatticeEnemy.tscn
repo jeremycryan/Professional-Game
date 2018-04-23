@@ -2,25 +2,27 @@
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://shield.png" type="Texture" id=3]
+[ext_resource path="res://LatticeEnemy.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 30, 30 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 31.9892, 7.56786 )
+radius = 341.6
 
-[node name="ArmorEnemy" type="Node2D" groups=[
+[node name="LatticeEnemy" type="Node2D" groups=[
 "enemy",
 ]]
 
 _sections_unfolded = [ "Pause", "Transform" ]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." index="0"]
+[node name="RigidBody2D" type="RigidBody2D" parent="." index="0" groups=[
+"link",
+]]
 
 input_pickable = false
 collision_layer = 64
@@ -58,41 +60,33 @@ _sections_unfolded = [ "Transform" ]
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PinJoint2D" type="PinJoint2D" parent="." index="1"]
+[node name="Area2D" type="Area2D" parent="." index="1"]
 
-visible = false
-position = Vector2( -30.1879, 30.1879 )
-node_a = NodePath("../RigidBody2D")
-node_b = NodePath("../RigidBody2D2")
-bias = 0.9
-disable_collision = true
-softness = 0.0
-_sections_unfolded = [ "Visibility" ]
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
 
-[node name="PinJoint2D2" type="PinJoint2D" parent="." index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
-visible = false
-position = Vector2( 30.0455, 30.0455 )
-node_a = NodePath("../RigidBody2D")
-node_b = NodePath("../RigidBody2D2")
-bias = 0.9
-disable_collision = true
-softness = 0.0
-_sections_unfolded = [ "Visibility" ]
+shape = SubResource( 2 )
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="." index="3" groups=[
-"shield",
+[node name="Linkage" type="RigidBody2D" parent="." index="2" groups=[
+"lattice",
 ]]
 
-position = Vector2( 0.315559, 38.4981 )
 input_pickable = false
-collision_layer = 64
-collision_mask = 5
+collision_layer = 256
+collision_mask = 261
 mode = 0
 mass = 1.02041e-05
 friction = 1.0
 bounce = 0.0
-gravity_scale = 1.0
+gravity_scale = 0.0
 custom_integrator = false
 continuous_cd = 0
 contacts_reported = 0
@@ -104,14 +98,5 @@ linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 _sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2" index="0"]
-
-position = Vector2( 0, -0.47234 )
-shape = SubResource( 2 )
-
-[node name="Sprite" type="Sprite" parent="RigidBody2D2" index="1"]
-
-texture = ExtResource( 3 )
 
 

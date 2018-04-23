@@ -135,6 +135,10 @@ position = Vector2( 1371.15, 894.89 )
 editor/display_folded = true
 position = Vector2( 1076.4, 1083.11 )
 
+[node name="RigidBody2D" parent="Enemies/SlowEnemy" index="0"]
+
+aim = true
+
 [node name="Kamikaze" parent="Enemies" index="3" instance=ExtResource( 10 )]
 
 position = Vector2( 814.065, 1093.37 )
@@ -147,6 +151,10 @@ position = Vector2( 1061.68, -54.7966 )
 
 editor/display_folded = true
 position = Vector2( 921.397, 1089.12 )
+
+[node name="RigidBody2D" parent="ArmorEnemy" index="0"]
+
+aim = true
 
 [node name="RigidBody2D2" parent="ArmorEnemy" index="3"]
 
