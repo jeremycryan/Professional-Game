@@ -23,6 +23,7 @@ func button_body_entered(body):
 			currentBody = body
 			set_collision_layer_bit(0,false)
 			get_child(1).hide()
+			print("got here")
 		elif(door_type == 1): # door disappears and reappears after 1 second
 			set_collision_layer_bit(0,false)
 			get_child(1).hide()
