@@ -38,3 +38,8 @@ func raycast():
 func _integrate_forces(state):
 	if state.linear_velocity.length() > vmax:
 		state.linear_velocity = state.linear_velocity.normalized()*vmax
+
+func kill():
+	for child in get_children(): #Delete the enemy and its children if it has been dashed through
+		child.free();
+	get_parent().free();

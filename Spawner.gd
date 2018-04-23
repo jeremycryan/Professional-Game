@@ -23,3 +23,8 @@ func launch():
 	if not fired:
 		fired = true
 		t0 = OS.get_ticks_msec()/1000.0 + cooldown
+
+func kill():
+	for child in get_children(): #Delete the enemy and its children if it has been dashed through
+		child.free(); # Note: deletes any existing kamikazes
+	get_parent().free();

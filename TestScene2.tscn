@@ -13,7 +13,7 @@
 [ext_resource path="res://KamikazeSpawner.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ArmorEnemy.tscn" type="PackedScene" id=12]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 [node name="Maps" type="Node2D" parent="." index="0"]
 
@@ -112,8 +112,6 @@ script = ExtResource( 5 )
 _sections_unfolded = [ "Drag Margin", "Smoothing" ]
 
 [node name="Player" parent="." index="2" instance=ExtResource( 6 )]
-
-editor/display_folded = true
 
 [node name="Sprites" parent="Player" index="4"]
 
