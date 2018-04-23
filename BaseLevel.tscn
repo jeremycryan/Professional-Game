@@ -1,13 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://NewDemoTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://ReflectorTileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://BulletPassTileSet.tres" type="TileSet" id=3]
 [ext_resource path="res://PlayerPassTileSet.tres" type="TileSet" id=4]
 [ext_resource path="res://SpikeTileSet.tres" type="TileSet" id=5]
-[ext_resource path="res://buttonDoor.tscn" type="PackedScene" id=6]
-[ext_resource path="res://NewPlayer.tscn" type="PackedScene" id=7]
-[ext_resource path="res://GameCamera.gd" type="Script" id=8]
+[ext_resource path="res://NewPlayer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GameCamera.gd" type="Script" id=7]
 
 [node name="BaseLevel" type="Node2D"]
 
@@ -140,9 +139,7 @@ format = 1
 tile_data = PoolIntArray( 65539, 0, 0 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="Button Door" parent="Maps" index="6" instance=ExtResource( 6 )]
-
-[node name="Player" parent="." index="1" instance=ExtResource( 7 )]
+[node name="Player" parent="." index="1" instance=ExtResource( 6 )]
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
 
@@ -168,6 +165,6 @@ drag_margin_bottom = 0.0
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 
 

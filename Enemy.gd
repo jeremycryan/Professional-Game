@@ -10,7 +10,6 @@ var player
 
 func _ready():
 	player = get_node("/root").get_child(0).find_node("Player")
-	
 	#player = find_node("Player")
 
 func _process(delta):
