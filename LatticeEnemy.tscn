@@ -14,7 +14,7 @@ extents = Vector2( 30, 30 )
 custom_solver_bias = 0.0
 radius = 341.6
 
-[node name="LatticeEnemy" type="Node2D" groups=[
+[node name="LatticeEnemy" type="Node2D" index="0" groups=[
 "enemy",
 ]]
 
@@ -81,7 +81,7 @@ shape = SubResource( 2 )
 
 input_pickable = false
 collision_layer = 256
-collision_mask = 261
+collision_mask = 5
 mode = 0
 mass = 1.02041e-05
 friction = 1.0

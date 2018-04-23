@@ -172,18 +172,18 @@ script = ExtResource( 7 )
 
 [node name="LatticeEnemy" parent="Enemies" index="0" instance=ExtResource( 8 )]
 
-position = Vector2( 1273.43, -411.083 )
+position = Vector2( 1157.64, -357.054 )
 
 [node name="LatticeEnemy2" parent="Enemies" index="1" instance=ExtResource( 8 )]
 
-position = Vector2( 1023.8, -522.539 )
+position = Vector2( 1160.43, -889.846 )
 
 [node name="LatticeEnemy3" parent="Enemies" index="2" instance=ExtResource( 8 )]
 
-position = Vector2( 1485.47, -263.932 )
+position = Vector2( 1414.27, -569.055 )
 
 [node name="LatticeEnemy4" parent="Enemies" index="3" instance=ExtResource( 8 )]
 
-position = Vector2( 1315.05, -710.063 )
+position = Vector2( 1160.43, -580.213 )
 
 
