@@ -23,6 +23,7 @@ var jumpTime = .5; #number of seconds after leaving ground at which you can jump
 var jumpDebounceTime = .05;
 var jumpDebounceClock = 0;
 onready var groundChecker = get_node("Grounded");
+onready var streamPlayer = get_node("TeleSound");
 
 #var jumping = 0;
 #var canJump = false;
@@ -102,6 +103,7 @@ func _process(delta):
 		
 	if (Input.is_action_just_pressed("tele") and bulletRef != null and bulletRef.get_ref()):
 		if dashes > 0:
+			streamPlayer.play()
 			BulletSwap(self, bulletRef.get_ref()); #Swap positions with bullet if have dashes left
 			dashes -= 1;
 	
