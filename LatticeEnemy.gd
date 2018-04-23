@@ -9,15 +9,9 @@ var links = [];
 var numLinksMakeInvincible = 3;
 var linkWidth = 5;
 
-var player
-
-func _process(delta):
-	for child in get_node("/root").find_node("Enemies").get_children():
-		if child.
-	
+func _process(delta):	
 	for child in get_parent().find_node("Linkage").get_children():
-		if (child != get_parent().find_node("Linkage").find_node("Armor") and child != get_parent().find_node("Linkage").find_node("Sprite")):
-			child.free();
+		child.free();
 	
 	for link in links:
 		var shape = ConvexPolygonShape2D.new();
@@ -33,9 +27,9 @@ func _process(delta):
 		link[1] = shape;
 	update();
 
-#func _ready():
-#	connect("body_entered", self, "_check_for_links");
-#	connect("body_exited", self, "_remove_links");
+func _ready():
+	connect("body_entered", self, "_check_for_links");
+	connect("body_exited", self, "_remove_links");
 
 
 func _check_for_links(body):

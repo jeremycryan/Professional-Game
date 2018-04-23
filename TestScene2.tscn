@@ -113,8 +113,6 @@ _sections_unfolded = [ "Drag Margin", "Smoothing" ]
 
 [node name="Player" parent="." index="2" instance=ExtResource( 6 )]
 
-editor/display_folded = true
-
 [node name="Sprites" parent="Player" index="4"]
 
 editor/display_folded = true
@@ -130,12 +128,12 @@ position = Vector2( 758.174, 775.879 )
 
 [node name="Enemy2" parent="Enemies" index="1" instance=ExtResource( 8 )]
 
-position = Vector2( 1082.75, 784.841 )
+position = Vector2( 1371.15, 894.89 )
 
 [node name="SlowEnemy" parent="Enemies" index="2" instance=ExtResource( 9 )]
 
 editor/display_folded = true
-position = Vector2( 1387.57, 259.639 )
+position = Vector2( 1076.4, 1083.11 )
 
 [node name="Kamikaze" parent="Enemies" index="3" instance=ExtResource( 10 )]
 
@@ -148,7 +146,7 @@ position = Vector2( 1061.68, -54.7966 )
 [node name="ArmorEnemy" parent="." index="4" instance=ExtResource( 12 )]
 
 editor/display_folded = true
-position = Vector2( 181.415, -34.1372 )
+position = Vector2( 921.397, 1089.12 )
 
 [node name="RigidBody2D2" parent="ArmorEnemy" index="3"]
 

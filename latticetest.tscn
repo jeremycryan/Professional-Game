@@ -8,11 +8,11 @@
 
 [node name="LatticeEnemy4" parent="Enemies" index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 537.628, 71.018 )
+position = Vector2( 486.378, 233.811 )
 
 [node name="LatticeEnemy3" parent="Enemies" index="1" instance=ExtResource( 1 )]
 
-position = Vector2( 254.248, 54.4372 )
+position = Vector2( 264.8, 92.1207 )
 
 [node name="LatticeEnemy2" parent="Enemies" index="2" instance=ExtResource( 1 )]
 

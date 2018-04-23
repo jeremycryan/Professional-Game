@@ -16,8 +16,11 @@ func _ready():
 func _process(delta):
 	for body in get_colliding_bodies():
 		if not body.get_parent().name == "Spawner":
+			if get_parent().get_parent() is StaticBody2D:
+				if not triggered:
+					if get_parent().get_parent() is StaticBody2D:
+						get_parent().get_parent().launch()
 			queue_free()
-			get_parent().get_parent().remove_child(get_parent())
 	#print(get_parent().get_parent())
 		# TODO: Death animation/explosion
 	if player:
@@ -46,3 +49,10 @@ func raycast():
 func _integrate_forces(state):
 	if state.linear_velocity.length() > vmax:
 		state.linear_velocity = state.linear_velocity.normalized()*vmax
+		
+func kill():
+	if get_parent().get_parent() is StaticBody2D:
+		get_parent().get_parent().launch()
+	for child in get_children(): #Delete the enemy and its children if it has been dashed through
+		child.free();
+	get_parent().free();
