@@ -6,7 +6,7 @@
 [ext_resource path="res://SlowEnemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://musicSample.wav" type="AudioStream" id=5]
 
-[node name="NewDemo" type="Node2D" index="0"]
+[node name="NewDemo" type="Node2D"]
 
 position = Vector2( 0, -6.33801 )
 
@@ -42,11 +42,15 @@ tile_data = PoolIntArray( 1114116, 0, 0, 1114117, 0, 0, 1114118, 0, 0, 1114119, 
 
 [node name="Button" parent="BaseLevel/Maps/Button Door" index="0"]
 
-position = Vector2( 47, 44 )
+position = Vector2( 1600, -330 )
+scale = Vector2( 10, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Door" parent="BaseLevel/Maps/Button Door" index="1"]
 
-position = Vector2( 128, 43 )
+position = Vector2( 1225, -1120 )
+scale = Vector2( 10, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
 door_type = 2
 
 [node name="Enemies" type="Node2D" parent="." index="1"]
