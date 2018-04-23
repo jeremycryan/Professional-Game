@@ -139,7 +139,12 @@ format = 1
 tile_data = PoolIntArray( 65539, 0, 0 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="Player" parent="." index="1" instance=ExtResource( 6 )]
+[node name="Button Door" parent="Maps" index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 1085.86, -23.8801 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Player" parent="." index="1" instance=ExtResource( 7 )]
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
 
@@ -168,3 +173,4 @@ editor_draw_drag_margin = false
 script = ExtResource( 7 )
 
 
+[editable path="Maps/Button Door"]

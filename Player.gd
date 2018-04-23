@@ -5,7 +5,7 @@ var bulletFab = preload("res://Bullet.tscn");
 var parent;
 var grandparent;
 var bulletRef = null;
-var shootSpeed = 500;
+var shootSpeed = 800;
 var motion = Vector2();
 #var new_impulse = Vector2();
 var gravity = Vector2(0, 15);
@@ -13,6 +13,7 @@ var jumpStrength = -500;
 #var speed = 1000;
 
 var airaccel = 1500;
+var airaccelNoMove = 500;
 var groundaccel = 4000;
 var maxHoriSpeed = 500;
 
@@ -125,7 +126,7 @@ func _process(delta):
 		accel.x = (motion.x - linear_velocity.x/maxHoriSpeed) * groundaccel
 	else:
 		if (motion.x == 0):
-			pass
+			accel.x = (motion.x - linear_velocity.x/maxHoriSpeed) * airaccelNoMove
 		else:
 			accel.x = (motion.x - linear_velocity.x/maxHoriSpeed) * airaccel
 			
