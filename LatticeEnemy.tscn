@@ -7,14 +7,14 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 30, 30 )
+extents = Vector2( 41.1027, 41.2731 )
 
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 341.6
+radius = 748.451
 
-[node name="LatticeEnemy" type="Node2D" index="0" groups=[
+[node name="LatticeEnemy" type="Node2D" groups=[
 "enemy",
 ]]
 

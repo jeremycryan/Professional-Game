@@ -219,7 +219,7 @@ func BulletSwap(p, b):
 			enemyPosition = checkEnemies.get_collision_point() + (b.global_position - p.global_position).normalized() * resolution_factor;
 		
 		if enemyPosition != null:
-			checkEnemies.global_position = enemyPosition; #Check from where the first enemy was killed to end
+			checkEnemies.global_position = checkEnemies.get_collision_point(); #Check from where the first enemy was killed to end
 			checkEnemies.cast_to = b.global_position - checkEnemies.global_position;
 			checkEnemies.force_raycast_update();
 		

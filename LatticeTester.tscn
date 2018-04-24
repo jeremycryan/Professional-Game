@@ -172,18 +172,25 @@ script = ExtResource( 7 )
 
 [node name="LatticeEnemy" parent="Enemies" index="0" instance=ExtResource( 8 )]
 
-position = Vector2( 1157.64, -357.054 )
+position = Vector2( 1893.89, -702.075 )
+
+[node name="RigidBody2D" parent="Enemies/LatticeEnemy" index="0"]
+
+editor/display_folded = true
 
 [node name="LatticeEnemy2" parent="Enemies" index="1" instance=ExtResource( 8 )]
 
-position = Vector2( 1160.43, -889.846 )
+editor/display_folded = true
+position = Vector2( 1037.7, -804.818 )
 
 [node name="LatticeEnemy3" parent="Enemies" index="2" instance=ExtResource( 8 )]
 
-position = Vector2( 1414.27, -569.055 )
+position = Vector2( 1126.74, -226.034 )
 
 [node name="LatticeEnemy4" parent="Enemies" index="3" instance=ExtResource( 8 )]
 
-position = Vector2( 1160.43, -580.213 )
+position = Vector2( 1448.67, -619.881 )
 
 
+[editable path="Enemies/LatticeEnemy"]
+[editable path="Enemies/LatticeEnemy2"]

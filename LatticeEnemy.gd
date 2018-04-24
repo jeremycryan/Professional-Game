@@ -14,13 +14,14 @@ func _physics_process(delta):
 		for child in get_parent().find_node("Linkage").get_children():
 			child.free();
 		links = [];
+		update();
 		for body in get_overlapping_bodies():
 			_check_for_links(body);
 
 	if links.size() >= numLinksMakeInvincible:
-		get_parent().find_node("Linkage").add_to_group("invincible");
-	elif get_parent().find_node("Linkage").is_in_group("invincible"):
-		get_parent().find_node("Linkage").remove_from_group("invincible");
+		get_parent().find_node("RigidBody2D").add_to_group("invincible");
+	elif get_parent().find_node("RigidBody2D").is_in_group("invincible"):
+		get_parent().find_node("RigidBody2D").remove_from_group("invincible");
 
 func _check_for_links(body):
 	if (body.is_in_group("link") and body.get_parent() != get_parent()):
@@ -43,5 +44,5 @@ func _draw():
 	for link in links:
 		draw_line(Vector2(0,0), link[0] - global_position, Color(1, 1, .15, .8), linkWidth, false);
 
-	if get_parent().find_node("Linkage").is_in_group("invincible"):
+	if get_parent().find_node("RigidBody2D").is_in_group("invincible"):
 		draw_circle(Vector2(0,0), 64, Color(1, 1, .15, .3));
