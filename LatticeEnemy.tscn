@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 41.1027, 41.2731 )
+extents = Vector2( 52.889, 54.8524 )
 
 [sub_resource type="CircleShape2D" id=2]
 
@@ -44,10 +44,10 @@ angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Linear", "Transform" ]
-omega = 2000.0
-v = 10.0
-vmax = 100
-sightRange = 2000
+omega = 0.0
+v = 0.0
+vmax = 0.0
+sightRange = 0.0
 aim = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" index="0"]
