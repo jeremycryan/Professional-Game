@@ -8,14 +8,14 @@ var bulletRef = null;
 var shootSpeed = 800;
 var motion = Vector2();
 #var new_impulse = Vector2();
-var gravity = Vector2(0, 15);
-var jumpStrength = -500;
+var gravity = Vector2(0, 32);
+var jumpStrength = -700;
 #var speed = 1000;
 
-var airaccel = 1500;
-var airaccelNoMove = 500;
-var groundaccel = 4000;
-var maxHoriSpeed = 500;
+var airaccel = 1500 *  1.25;
+var airaccelNoMove = 500 * 1.75;
+var groundaccel = 4000 * 2.25;
+var maxHoriSpeed = 500 * 1.75;
 
 #var termvel_x = 99999; #Terminal Velocity
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Grounded.gd" type="Script" id=2]
@@ -123,14 +123,24 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
+[sub_resource type="CircleShape2D" id=8]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[sub_resource type="CircleShape2D" id=9]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
 [node name="Player" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 4
 collision_mask = 353
 mode = 2
-mass = 1.0
-friction = 0.0
+mass = 2.5
+friction = 0.35
 bounce = 0.0
 gravity_scale = 0.0
 custom_integrator = false
@@ -138,13 +148,13 @@ continuous_cd = 0
 contacts_reported = 0
 contact_monitor = false
 sleeping = false
-can_sleep = true
+can_sleep = false
 linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
+linear_damp = 0.85
 angular_velocity = 0.0
-angular_damp = -1.0
+angular_damp = 0.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Linear", "Transform" ]
+_sections_unfolded = [ "Applied Forces", "Collision", "Linear", "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Dash" type="RayCast2D" parent="." index="0"]
 
@@ -161,7 +171,7 @@ script = ExtResource( 2 )
 
 enabled = true
 exclude_parent = true
-cast_to = Vector2( 0, 48 )
+cast_to = Vector2( 0, 50 )
 collision_mask = 97
 _sections_unfolded = [ "Transform" ]
 
@@ -170,7 +180,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 14, 0 )
 enabled = true
 exclude_parent = true
-cast_to = Vector2( 0, 48 )
+cast_to = Vector2( 0, 50 )
 collision_mask = 97
 _sections_unfolded = [ "Transform" ]
 
@@ -179,13 +189,14 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( -14, 0 )
 enabled = true
 exclude_parent = true
-cast_to = Vector2( 0, 48 )
+cast_to = Vector2( 0, 50 )
 collision_mask = 97
 _sections_unfolded = [ "Transform" ]
 
 [node name="PlayerCollisionBody" type="CollisionShape2D" parent="." index="2"]
 
-scale = Vector2( 2, 2 )
+position = Vector2( 0, -3.92206 )
+scale = Vector2( 2, 1.85423 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -206,8 +217,9 @@ blend_times = [  ]
 
 [node name="Sprites" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 scale = Vector2( 2, 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Idle" type="Sprite" parent="Sprites" index="0"]
 
@@ -270,5 +282,25 @@ max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="6"]
+
+position = Vector2( 0, 38.125 )
+shape = SubResource( 8 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." index="7"]
+
+position = Vector2( -17.5, 0 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="8"]
+
+position = Vector2( 17.5, 0 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 9 )
+_sections_unfolded = [ "Transform" ]
 
 
