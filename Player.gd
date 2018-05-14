@@ -9,7 +9,7 @@ var shootSpeed = 800;
 var motion = Vector2();
 #var new_impulse = Vector2();
 var gravity = Vector2(0, 32);
-var jumpStrength = -700;
+var jumpStrength = -600;
 #var speed = 1000;
 
 var airaccel = 1500 *  1.25;
