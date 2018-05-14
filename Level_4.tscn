@@ -184,6 +184,8 @@ script = ExtResource( 8 )
 
 [node name="Enemies" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
+
 [node name="Kamikaze" parent="Enemies" index="0" instance=ExtResource( 9 )]
 
 position = Vector2( 4689.64, 970.359 )
@@ -307,6 +309,10 @@ position = Vector2( 5636.78, -293.306 )
 [node name="Goal" parent="." index="4" instance=ExtResource( 10 )]
 
 position = Vector2( 10164.1, 1928.55 )
+
+[node name="Area2D" parent="Goal" index="0"]
+
+NextScene = "Level_5"
 
 
 [editable path="Maps/Button Door"]
