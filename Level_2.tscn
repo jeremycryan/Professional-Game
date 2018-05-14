@@ -175,6 +175,8 @@ script = ExtResource( 7 )
 
 [node name="Enemies" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
+
 [node name="SlowEnemy" parent="Enemies" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( 1113.31, -172.676 )
