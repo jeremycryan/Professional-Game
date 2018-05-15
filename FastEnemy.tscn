@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 30, 30 )
 
-[node name="SlowEnemy" type="Node2D" index="0" groups=[
+[node name="FastEnemy" type="Node2D" groups=[
 "enemy",
 ]]
 
@@ -31,14 +31,14 @@ contact_monitor = false
 sleeping = false
 can_sleep = true
 linear_velocity = Vector2( 0, 0 )
-linear_damp = 5.0
+linear_damp = 0.25
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Linear", "Transform" ]
-omega = 2000.0
+omega = 10000.0
 v = 10.0
-vmax = 100
+vmax = 750.0
 sightRange = 2000
 aim = false
 

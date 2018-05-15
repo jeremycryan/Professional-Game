@@ -187,5 +187,9 @@ script = ExtResource( 8 )
 
 position = Vector2( 3831.04, 2287.09 )
 
+[node name="Area2D" parent="Goal" index="0"]
+
+NextScene = "Level_7"
+
 
 [editable path="Goal"]

@@ -74,7 +74,7 @@ collision_layer = 1
 collision_mask = 4
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray(  )
+tile_data = PoolIntArray( -131047, 0, 0, -131046, 0, 0, -131045, 0, 0, -131044, 0, 0, -131043, 0, 0, -131042, 0, 0, -131041, 0, 0, -131040, 0, 0, -131039, 0, 0, -131038, 0, 0, -131037, 0, 0 )
 
 [node name="BulletPass" type="TileMap" parent="Maps" index="3"]
 

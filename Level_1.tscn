@@ -9,9 +9,12 @@
 [ext_resource path="res://GameCamera.gd" type="Script" id=7]
 [ext_resource path="res://Goal.tscn" type="PackedScene" id=8]
 
-[node name="BaseLevel" type="Node2D" index="0"]
+[node name="BaseLevel" type="Node2D"]
 
 [node name="Maps" type="Node2D" parent="." index="0"]
+
+editor/display_folded = true
+rotation = -0.003065
 
 [node name="Walls" type="TileMap" parent="Maps" index="0"]
 
