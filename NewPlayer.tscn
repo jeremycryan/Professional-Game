@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Grounded.gd" type="Script" id=2]
@@ -7,7 +7,8 @@
 [ext_resource path="res://WhitePixel.png" type="Texture" id=5]
 [ext_resource path="res://!spooksprites/Player/RunRight.png" type="Texture" id=6]
 [ext_resource path="res://ghostbeep.wav" type="AudioStream" id=7]
-[ext_resource path="res://TeleParticles.tscn" type="PackedScene" id=8]
+[ext_resource path="res://musicSample.wav" type="AudioStream" id=8]
+[ext_resource path="res://TeleParticles.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -436,6 +437,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="TeleSound" type="AudioStreamPlayer2D" parent="." index="5"]
 
 rotation = 0.143368
+scale = Vector2( 1, 1 )
 stream = ExtResource( 7 )
 volume_db = -10.0
 pitch_scale = 1.0
@@ -445,40 +447,53 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="6"]
+[node name="Background" type="AudioStreamPlayer2D" parent="." index="6"]
+
+rotation = 0.143368
+scale = Vector2( 1, 1 )
+stream = ExtResource( 8 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = true
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="7"]
 
 position = Vector2( 0, 33.125 )
 scale = Vector2( 1.5, 1.5 )
 shape = SubResource( 13 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="." index="7"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." index="8"]
 
 position = Vector2( -11, 0 )
 shape = SubResource( 14 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="." index="8"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="." index="9"]
 
 position = Vector2( 15.5, 40 )
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 14 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="9"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="10"]
 
 position = Vector2( 11, 0 )
 shape = SubResource( 14 )
 _sections_unfolded = [ "Material", "Transform" ]
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="." index="10"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." index="11"]
 
 position = Vector2( -15.5, 40 )
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 14 )
 _sections_unfolded = [ "Material", "Transform" ]
 
-[node name="CloudParticles" type="Particles2D" parent="." index="11"]
+[node name="CloudParticles" type="Particles2D" parent="." index="12"]
 
 emitting = false
 amount = 200
@@ -500,9 +515,8 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time" ]
 
-[node name="TeleParticles" parent="." index="12" instance=ExtResource( 8 )]
+[node name="TeleParticles" parent="." index="13" instance=ExtResource( 9 )]
 
 position = Vector2( -258.932, -207.887 )
-_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures" ]
 
 
