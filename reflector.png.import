@@ -7,10 +7,7 @@ path="res://.import/reflector.png-0fdd8f45ac022fdcc03719e1246968d5.stex"
 [deps]
 
 source_file="res://reflector.png"
-source_md5="f16c45f1807110286f5c2915ba79b705"
-
 dest_files=[ "res://.import/reflector.png-0fdd8f45ac022fdcc03719e1246968d5.stex" ]
-dest_md5="6614f5adabf9eaa9440a90dc635200ab"
 
 [params]
 

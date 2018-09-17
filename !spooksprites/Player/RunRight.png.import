@@ -7,10 +7,7 @@ path="res://.import/RunRight.png-4a9d93259f8975f08254dd7c88b3da3c.stex"
 [deps]
 
 source_file="res://!spooksprites/Player/RunRight.png"
-source_md5="5705c6088e6b7ecdf73fad47ce0a0cfa"
-
 dest_files=[ "res://.import/RunRight.png-4a9d93259f8975f08254dd7c88b3da3c.stex" ]
-dest_md5="6d527af58badeba45fbc6271ea457f1c"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/bluetile.png-5a0ca083e6ef18ecf5e898f4ffbc00ab.stex"
 [deps]
 
 source_file="res://bluetile.png"
-source_md5="631df5457d1e7ec9f399bc65fdeb5edd"
-
 dest_files=[ "res://.import/bluetile.png-5a0ca083e6ef18ecf5e898f4ffbc00ab.stex" ]
-dest_md5="9028da4560bc033f6eb8a4349e4b228a"
 
 [params]
 

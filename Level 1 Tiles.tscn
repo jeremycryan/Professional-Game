@@ -15,7 +15,7 @@ _sections_unfolded = [ "Animation", "Offset", "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="LightBlue" index="0"]
 
-position = Vector2( 0, 9.53674e-07 )
+position = Vector2( 0, 9.53674e-007 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -42,7 +42,7 @@ _sections_unfolded = [ "Animation", "Offset" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="DarkBlue" index="0"]
 
-position = Vector2( 0, -9.53674e-07 )
+position = Vector2( 0, -9.53674e-007 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1

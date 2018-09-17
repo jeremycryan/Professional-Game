@@ -23,6 +23,10 @@ var jumpClock = 0; #jump timer
 var jumpTime = .5; #number of seconds after leaving ground at which you can jump
 var jumpDebounceTime = .05;
 var jumpDebounceClock = 0;
+
+onready var cloudSpawn = get_node("CloudParticles");
+#onready var teleSpawn = get_node("../Bullet/TeleParticles");
+
 onready var groundChecker = get_node("Grounded");
 onready var streamPlayer = get_node("TeleSound");
 
@@ -102,8 +106,11 @@ func _process(delta):
 		
 		bulletRef = weakref(bulletInst)
 		
+		
 	if (Input.is_action_just_pressed("tele") and bulletRef != null and bulletRef.get_ref()):
 		if dashes > 0:
+#			teleSpawn = bulletRef.get_node("TeleParticles");
+			#teleSpawn.emitting = true;
 			streamPlayer.play()
 			BulletSwap(self, bulletRef.get_ref()); #Swap positions with bullet if have dashes left
 			dashes -= 1;
@@ -176,6 +183,8 @@ func _ready():
 	
 	set_contact_monitor(true);
 	set_max_contacts_reported(5);
+	
+	cloudSpawn.emitting = true;
 
 """func _on_Floor_collided():
 	#canJump = true
@@ -230,6 +239,8 @@ func BulletSwap(p, b):
 		var templin = b.linear_velocity;
 		b.linear_velocity = p.linear_velocity
 		p.linear_velocity = templin
+		
+		
 	else: #If you died when switching
 		var temp = b.global_position
 		b.global_position = p.global_position
@@ -240,6 +251,7 @@ func BulletSwap(p, b):
 		
 func Death():
 	RestartLevel();
+	
 	
 func RestartLevel():
 	get_tree().reload_current_scene();

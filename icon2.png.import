@@ -7,10 +7,7 @@ path="res://.import/icon2.png-2294dfe885793d4711fc20bee13a3760.stex"
 [deps]
 
 source_file="res://icon2.png"
-source_md5="8c8663b0e626d9d1e5f0144b8b2ba89e"
-
 dest_files=[ "res://.import/icon2.png-2294dfe885793d4711fc20bee13a3760.stex" ]
-dest_md5="4b6bdf79a40b8afef11594892163187d"
 
 [params]
 
@@ -24,7 +21,7 @@ flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true
-process/premult_alpha=false
+process/premult_alpha=true
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0

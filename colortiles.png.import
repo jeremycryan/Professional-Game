@@ -7,10 +7,7 @@ path="res://.import/colortiles.png-b985a0f6df0481315e379efe6cf213f6.stex"
 [deps]
 
 source_file="res://colortiles.png"
-source_md5="b1eee01398f31fefbb731b630ea1d285"
-
 dest_files=[ "res://.import/colortiles.png-b985a0f6df0481315e379efe6cf213f6.stex" ]
-dest_md5="18ebba21e0a3e6924fbe7d38f66665d1"
 
 [params]
 

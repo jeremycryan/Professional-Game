@@ -7,10 +7,7 @@ path="res://.import/Person.png-174efec90c7e11607dde85b10d00f533.stex"
 [deps]
 
 source_file="res://Person.png"
-source_md5="9e6fa1bbbce2dd6d572593d72c5acded"
-
 dest_files=[ "res://.import/Person.png-174efec90c7e11607dde85b10d00f533.stex" ]
-dest_md5="a6b6cb79198b6a8a66c43fb82a95020c"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/Blink.png-d365cb99dec8c7171717ca9e0d0ee2f2.stex"
 [deps]
 
 source_file="res://!spooksprites/Player/Blink.png"
-source_md5="a6005f4bd95581b482aa8d401984cbd4"
-
 dest_files=[ "res://.import/Blink.png-d365cb99dec8c7171717ca9e0d0ee2f2.stex" ]
-dest_md5="4af10ee616a0d0f193003f6f0306986a"
 
 [params]
 
