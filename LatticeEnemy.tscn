@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://!spooksprites/Enemy.png" type="Texture" id=2]
 [ext_resource path="res://LatticeEnemy.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -83,7 +83,7 @@ input_pickable = false
 collision_layer = 256
 collision_mask = 5
 mode = 0
-mass = 1.02041e-05
+mass = 1.02041e-005
 friction = 1.0
 bounce = 0.0
 gravity_scale = 0.0

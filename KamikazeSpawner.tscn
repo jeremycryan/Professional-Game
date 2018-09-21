@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Spawner.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://!spooksprites/Enemy.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 30, 30 )
 
-[node name="Spawner" type="Node2D"]
+[node name="Spawner" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Pause", "Transform" ]
 
